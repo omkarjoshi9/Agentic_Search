@@ -1,0 +1,42 @@
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph TD;
+    __start__[Start]:::startclass;
+    __end__[End]:::endclass;
+    planner[Planner]:::agentclass;
+    selector[Selector]:::agentclass;
+    reporter[Reporter]:::agentclass;
+    reviewer[Reviewer]:::agentclass;
+    router[Router]:::agentclass;
+    serper_tool[Serper Tool]:::toolclass;
+    scraper_tool[Scraper Tool]:::toolclass;
+    final_report[Final Report]:::toolclass;
+
+    __start__ --> planner;
+    planner --> serper_tool;
+    serper_tool --> selector;
+    selector --> scraper_tool;
+    scraper_tool --> reporter;
+    reporter --> reviewer;
+    reviewer --> router;
+    router -.-> planner & selector & reporter & reviewer & serper_tool & scraper_tool & final_report & __end__;
+    final_report --> __end__;
+    
+    classDef startclass fill:#fdfd96,stroke:#333,stroke-width:2px,color:black;  /* Yellow background, black font */
+    classDef endclass fill:#fdfd96,stroke:#333,stroke-width:2px,color:black;    /* Yellow background, black font */
+    classDef agentclass fill:#d4f4dd,stroke:#333,stroke-width:1px,color:green; /* Light green background, green font */
+    classDef toolclass fill:#f2f2f2,stroke:#333,stroke-width:1px,color:black;  /* Light gray background, black font */
+
+
+python -m app.app# Agentic_Search
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.
+
+
+```sh
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+```
